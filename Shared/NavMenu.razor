@@ -17,9 +17,13 @@
         <MudItem>
             <MudButton OnClick="@(() => ScrollToClassAsync(".contact"))" Color="Color.Inherit" Variant="Variant.Text" Size="Size.Small">Contato</MudButton>
         </MudItem>
-        <MudIconButton Class="@($"p-0 sun-moon-toggle {(isDarkMode ? "night-mode" : "")}")" OnClick="ToggleMode" Icon="@(isDarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.ModeNight)" Color="Color.Inherit" Size="Size.Small" />       
+        <MudIconButton Class="@($"p-0 sun-moon-toggle {(isDarkMode ? "night-mode" : "")}")" OnClick="ToggleMode" Icon="@(isDarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.ModeNight)" Color="Color.Inherit" Size="Size.Small" />
     </MudContainer>
 </MudAppBar>
+
+
+
+
 
 @code {
     public MudTheme theme = new();
