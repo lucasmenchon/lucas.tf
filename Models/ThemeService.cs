@@ -1,4 +1,6 @@
-﻿namespace BlazorWebProfile.Models
+﻿using MudBlazor;
+
+namespace BlazorWebProfile.Models
 {
     public class ThemeService
     {
@@ -8,19 +10,31 @@
         {
             PaletteLight = new PaletteLight()
             {
-                Primary = Colors.Blue.Darken2,
-                Secondary = Colors.DeepPurple.Darken1,
-                Background = Colors.Gray.Lighten4,
-                AppbarBackground = Colors.Blue.Darken3,
-                TextPrimary = Colors.Gray.Darken4
+                Primary = "#6C63FF",
+                Secondary = "#8E7AB5",
+                Tertiary = "#B8C1EC",
+                Background = "#F4F4F8",
+                Surface = "#FFFFFF",
+                AppbarBackground = "#6C63FF",
+                TextPrimary = "#2D2D2D",
+                TextSecondary = "#6C757D",
+                ActionDefault = "#8E7AB5",
+                TableHover = "#E0E7FF",
+                Divider = "#B8C1EC"
             },
             PaletteDark = new PaletteDark()
             {
-                Primary = Colors.Blue.Lighten3,
-                Secondary = Colors.Purple.Lighten2,
-                Background = Colors.Gray.Darken4,
-                AppbarBackground = Colors.Gray.Darken3,
-                TextPrimary = Colors.Gray.Lighten1
+                Primary = "#8E7AB5",
+                Secondary = "#6C63FF",
+                Tertiary = "#B8C1EC",
+                Background = "#121212",
+                Surface = "#1E1E2E",
+                AppbarBackground = "#1E1E2E",
+                TextPrimary = "#FFFFFF",
+                TextSecondary = "#D1D5DB",
+                ActionDefault = "#6C63FF",
+                TableHover = "#6E7582",
+                Divider = "#4B4B6F"
             }
         };
 
