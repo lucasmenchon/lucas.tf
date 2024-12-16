@@ -26,6 +26,11 @@
 
         public event Action<bool>? OnThemeChanged;
 
+        public ThemeService()
+        {
+            DarkMode = true;
+        }
+
         public void ToggleTheme()
         {
             DarkMode = !DarkMode;
