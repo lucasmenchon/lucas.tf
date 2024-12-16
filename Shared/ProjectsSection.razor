@@ -1,0 +1,51 @@
+﻿<MudText Align="Align.Center" Typo="Typo.h5" Class="pt-8 pb-2 projects" Color="Color.Inherit">
+    Projetos
+</MudText>
+<MudContainer Class="p-0">
+    <MudGrid Justify="Justify.Center">
+        @foreach (var project in Projects)
+        {
+            <MudItem xs="12" sm="6">
+                <MudPaper Elevation="4">
+                    <MudItem Class="p-1 d-flex justify-center">
+                        <MudText Typo="Typo.button">@project.Title</MudText>
+                    </MudItem>
+                    <MudDivider DividerType="DividerType.Middle" />
+                    <MudItem Class="p-2">
+                        <MudText Typo="Typo.body2" Align="Align.Center">@project.Description</MudText>
+                    </MudItem>
+                    <MudItem Class="p-1 d-flex justify-center">
+                        @if (!string.IsNullOrEmpty(project.Link))
+                        {
+                            <MudItem Class="p-1">
+                                <MudButton Href="@project.Link" Color="Color.Inherit" Variant="Variant.Text" Size="Size.Small" Target="_blank">
+                                    Acessar
+                                </MudButton>
+                            </MudItem>
+                        }
+                        @if (!string.IsNullOrEmpty(project.GitHubLink))
+                        {
+                            <MudItem Class="p-1">
+                                <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Size="Size.Small" Color="@(isDarkMode ? Color.Inherit : Color.Primary)"
+                                               Href="@project.GitHubLink" Target="_blank" />
+                            </MudItem>
+                        }
+                    </MudItem>
+                </MudPaper>
+            </MudItem>
+        }
+    </MudGrid>
+</MudContainer>
+
+@code {
+    [Parameter] public List<Project> Projects { get; set; } = new();
+    [Parameter] public bool isDarkMode { get; set; }
+
+    public class Project
+    {
+        public string Title { get; set; } = string.Empty;
+        public string Description { get; set; } = string.Empty;
+        public string Link { get; set; } = string.Empty;
+        public string GitHubLink { get; set; } = string.Empty;
+    }
+}

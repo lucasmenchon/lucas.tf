@@ -1,0 +1,35 @@
+﻿<MudText Align="Align.Center" Typo="Typo.h5" Class="pt-8 pb-2 experience" Color="Color.Inherit">
+    Experiências
+</MudText>
+<MudTimeline TimelinePosition="TimelinePosition.Start" Class="pt-0 pb-0">
+    @foreach (var experience in Experiences)
+    {
+        <MudTimelineItem Size="Size.Small" Color="@experience.Color" Elevation="4">
+            <ItemContent>
+                <MudCard Elevation="4">
+                    <MudCardContent Class="p-2">
+                        <MudText Typo="Typo.body1">@experience.Company</MudText>
+                        <MudText Typo="Typo.body2" Class="mud-text-secondary">@experience.Role • @experience.Period</MudText>
+                        @foreach (var detail in experience.Details)
+                        {
+                            <MudText Typo="Typo.body2">@detail</MudText>
+                        }
+                    </MudCardContent>
+                </MudCard>
+            </ItemContent>
+        </MudTimelineItem>
+    }
+</MudTimeline>
+
+@code {
+    [Parameter] public List<Experience> Experiences { get; set; } = new();
+
+    public class Experience
+    {
+        public string Company { get; set; } = string.Empty;
+        public string Role { get; set; } = string.Empty;
+        public string Period { get; set; } = string.Empty;
+        public Color Color { get; set; } = MudBlazor.Color.Info;
+        public List<string> Details { get; set; } = new();
+    }
+}

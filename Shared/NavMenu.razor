@@ -1,7 +1,7 @@
-﻿@inject IScrollManager ScrollManager
-@inject ThemeService ThemeService
+﻿@inject BlazorWebProfile.Models.ThemeService ThemeService
+@inject IScrollManager ScrollManager
 
-<MudThemeProvider @bind-IsDarkMode="ThemeService.DarkMode" Theme="theme" />
+<MudThemeProvider @bind-IsDarkMode="ThemeService.DarkMode" Theme="ThemeService.CustomTheme" />
 
 <MudAppBar Fixed="true" Dense="true" Color="Color.Inherit" Elevation="2">
     <MudContainer Class="d-flex justify-center gap-1">
@@ -17,27 +17,16 @@
         <MudItem>
             <MudButton OnClick="@(() => ScrollToClassAsync(".contact"))" Color="Color.Inherit" Variant="Variant.Text" Size="Size.Small">Contato</MudButton>
         </MudItem>
-        <MudIconButton Class="@($"p-0 sun-moon-toggle {(isDarkMode ? "night-mode" : "")}")" OnClick="ToggleMode" Icon="@(isDarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.ModeNight)" Color="Color.Inherit" Size="Size.Small" />
+        <MudIconButton Class="@($"p-0 sun-moon-toggle {(ThemeService.DarkMode ? "night-mode" : "")}")"
+                       OnClick="ThemeService.ToggleTheme"
+                       Icon="@(ThemeService.DarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.ModeNight)"
+                       Color="Color.Inherit" Size="Size.Small" />
     </MudContainer>
 </MudAppBar>
 
-
-
-
-
 @code {
-    public MudTheme theme = new();
-    public bool isDarkMode => ThemeService.DarkMode;
-    public bool isButtonActive = false;
-
-    void ToggleMode()
-    {
-        ThemeService.ToggleTheme();
-    }
-
     public async Task ScrollToClassAsync(string targetClass)
     {
-        isButtonActive = true;
         await ScrollManager!.ScrollIntoViewAsync($"{targetClass}", MudBlazor.ScrollBehavior.Smooth);
     }
 }

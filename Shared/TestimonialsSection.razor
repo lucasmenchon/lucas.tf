@@ -1,0 +1,35 @@
+﻿<MudText Align="Align.Center" Typo="Typo.h5" Class="pt-8 pb-2 testimonials" Color="Color.Inherit">
+    Depoimentos
+</MudText>
+<MudCarousel TData="object" Class="mud-width-full" ShowArrows="false" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false"
+             Style="height:330px; display: flex; flex-direction: column; justify-content: center; padding: 0;">
+    @foreach (var testimonial in Testimonials)
+    {
+        <MudCarouselItem Transition="Transition.Slide">
+            <MudPaper Elevation="4" Style="height:100%; display: flex; align-items: center;">
+                <MudPaper Class="p-5" Style="display: flex; flex-direction: column; justify-content: center; height:100%;">
+                    <MudText Typo="Typo.body2" Align="Align.Justify">
+                        "@testimonial.Message"
+                    </MudText>
+                    <MudText Typo="Typo.body1" Align="Align.Right" Class="mt-2">
+                        @testimonial.Author
+                    </MudText>
+                    <MudText Typo="Typo.caption" Align="Align.Right" Class="mud-text-secondary">
+                        @testimonial.Role
+                    </MudText>
+                </MudPaper>
+            </MudPaper>
+        </MudCarouselItem>
+    }
+</MudCarousel>
+
+@code {
+    [Parameter] public List<Testimonial> Testimonials { get; set; } = new();
+
+    public class Testimonial
+    {
+        public string Message { get; set; } = string.Empty;
+        public string Author { get; set; } = string.Empty;
+        public string Role { get; set; } = string.Empty;
+    }
+}

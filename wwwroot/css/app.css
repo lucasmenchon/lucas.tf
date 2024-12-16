@@ -1,7 +1,39 @@
 ﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+.loading-overlay {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgb(34, 40, 49); /*#32333D;*/
+}
+
+
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.section-background {
+    background-color: #F9F9F9;
+    padding: 2rem 0;
+    border-radius: 8px;
+}
+
+.section-heading {
+    margin-bottom: 1.5rem;
+    color: #2E3B55;
+    font-weight: bold;
+}
+
+
+.mud-button {
+    transition: all 0.3s ease-in-out;
+}
+
+.mud-icon-button:hover {
+    transform: scale(1.1);
+    transition: all 0.2s ease-in-out;
 }
 
 h1:focus {

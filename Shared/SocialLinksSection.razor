@@ -1,0 +1,18 @@
+﻿<MudGrid Class="d-flex justify-center text-gray-200" Justify="Justify.Center">
+    <MudItem>
+        <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Size="Size.Medium" Color="@(isDarkMode ? Color.Inherit : Color.Primary)"
+                       Href="https://github.com/lucasmenchon" Target="_blank" AriaLabel="Abrir perfil no GitHub do Lucas Menchon" />
+    </MudItem>
+    <MudItem>
+        <MudIconButton Icon="@Icons.Custom.Brands.LinkedIn" Size="Size.Medium" Color="@(isDarkMode ? Color.Inherit : Color.Primary)"
+                       Href="https://www.linkedin.com/in/lucasmenchon/" Target="_blank" AriaLabel="Abrir perfil no LinkedIn do Lucas Menchon" />
+    </MudItem>
+    <MudItem>
+        <MudIconButton Icon="@Icons.Custom.Brands.Telegram" Size="Size.Medium" Color="@(isDarkMode ? Color.Inherit : Color.Primary)"
+                       Href="https://t.me/lucasmenchon" Target="_blank" AriaLabel="Abrir perfil no Telegram do Lucas Menchon" />
+    </MudItem>
+</MudGrid>
+
+@code {
+    [Parameter] public bool isDarkMode { get; set; }
+}
