@@ -26,7 +26,7 @@
     </div>
 
     <SectionTitle Title="Educação" Class="pt-8 pb-2 education" />
-    <MudContainer MaxWidth="MaxWidth.Large" Class="py-6 px-4">
+    <MudContainer MaxWidth="MaxWidth.Large">
         <MudGrid Justify="Justify.Center" Spacing="2">
             @foreach (var education in Educations)
             {
@@ -44,9 +44,9 @@
 
     <TestimonialsSection Testimonials="@MyTestimonials" />
 
-    <SkillsSection Skills="MySkills" isDarkMode="isDarkMode" />
+    <SkillsSection Skills="MySkills" />
 
-    <ProjectsSection Projects="MyProjects" isDarkMode="isDarkMode" />
+    <ProjectsSection Projects="MyProjects" />
 
     <ContactSection Contacts="MyContacts" ContactText="Fale comigo via Telegram ou WhatsApp, envie um e-mail para contato@lucas.tf ou me ligue no +55 11 97552-8024." />
 
@@ -54,10 +54,7 @@
 
 <MudDivider DividerType="DividerType.FullWidth" />
 
-<MudItem Class="p-2">
-    <MudItem Class="d-flex justify-content-center">
-        <MudText Typo="Typo.body2" Align="Align.End">Desenvolvido por lucas.tf</MudText>
-    </MudItem>
+<MudItem Class="p-2">   
     <MudItem Class="d-flex justify-content-center">
         <MudText Typo="Typo.body2" Align="Align.Center">© Copyright @DateTime.Now.Year Lucas Menchon. Todos os direitos reservados.</MudText>
     </MudItem>
@@ -170,7 +167,7 @@
             Color = MudBlazor.Color.Success,
             Details = new List<string>
             {
-                ".NET Core, C#, ASP.NET, CQRS, TypeScript, Angular, Docker, RabbitMQ, PostgreSQL, Git, AWS.",
+                "o .NET Core, C#, ASP.NET, CQRS, TypeScript, Angular, Docker, RabbitMQ, PostgreSQL, Git, AWS.",
                 "Desenvolvimento, manutenção e aprimoramento de aplicações Web e Web API."
             }
         },

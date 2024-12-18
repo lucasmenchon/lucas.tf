@@ -1,18 +1,18 @@
-﻿<MudText Align="Align.Center" Typo="Typo.h5" Class="pt-8 pb-2 experience" Color="Color.Inherit">
-    Experiências
-</MudText>
-<MudTimeline TimelinePosition="TimelinePosition.Start" Class="pt-0 pb-0">
+﻿<SectionTitle Title="Experiências" Class="pt-8 pb-2" />
+
+<MudTimeline TimelinePosition="TimelinePosition.Start" Class="pt-0 pb-0" Breakpoint="Breakpoint.Sm">
     @foreach (var experience in Experiences)
     {
         <MudTimelineItem Size="Size.Small" Color="@experience.Color" Elevation="4">
             <ItemContent>
-                <MudCard Elevation="4">
-                    <MudCardContent Class="p-2">
-                        <MudText Typo="Typo.body1">@experience.Company</MudText>
-                        <MudText Typo="Typo.body2" Class="mud-text-secondary">@experience.Role • @experience.Period</MudText>
+                <MudCard Elevation="4" Class="pa-2">
+                    <MudCardContent>
+                        <MudText Typo="Typo.body1" Color="Color.Secondary">@experience.Company</MudText>
+                        <MudText Typo="Typo.caption" Color="Color.Primary">@experience.Role • @experience.Period</MudText>
+                        <MudSpacer />
                         @foreach (var detail in experience.Details)
                         {
-                            <MudText Typo="Typo.body2">@detail</MudText>
+                            <MudText Typo="Typo.caption" Color="Color.Tertiary">@detail</MudText>
                         }
                     </MudCardContent>
                 </MudCard>

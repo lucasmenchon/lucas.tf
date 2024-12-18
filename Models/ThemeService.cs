@@ -26,7 +26,7 @@ public class ThemeService
             PaletteLight = new PaletteLight()
             {
                 Primary = Colors.Blue.Default,              // Azul principal vibrante
-                Secondary = Colors.LightBlue.Lighten2,      // Azul claro de destaque
+                Secondary = Colors.LightBlue.Darken4,      // Azul claro de destaque
                 Tertiary = Colors.LightBlue.Darken4,       // Azul bem suave para elementos
                 Background = Colors.Shades.White,           // Fundo branco puro
                 Surface = Colors.Gray.Lighten5,             // Fundo dos cards próximo ao branco
@@ -44,8 +44,8 @@ public class ThemeService
                 Tertiary = Colors.Blue.Lighten4,             // Azul bem escuro para elementos
                 Background = Colors.Shades.Black,           // Fundo preto puro
                 Surface = Colors.Gray.Darken4,              // Fundo dos cards preto puxado
-                AppbarBackground = Colors.Gray.Darken3,     // AppBar com cinza profundo
-                TextPrimary = Colors.Gray.Lighten5,         // Texto branco claro
+                AppbarBackground = Colors.Gray.Darken4,     // AppBar com cinza profundo
+                TextPrimary = Colors.Blue.Lighten4,//Colors.Gray.Lighten5,         // Texto branco claro
                 TextSecondary = Colors.Gray.Lighten3,       // Texto secundário em cinza claro
                 ActionDefault = Colors.Blue.Accent2,        // Ações com azul vibrante
                 TableHover = Colors.Blue.Darken2,           // Hover em azul escuro

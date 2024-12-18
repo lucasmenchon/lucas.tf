@@ -1,13 +1,11 @@
-﻿<MudText Align="Align.Center" Typo="Typo.h5" Class="pt-8 pb-2 contact" Color="Color.Inherit">
-    Contato
-</MudText>
+﻿<SectionTitle Title="Contato" Class="pt-8 pb-2 contact" />
+
 <MudContainer Class="p-0 pb-2">
     <MudGrid Class="d-flex justify-center text-gray-200 pt-3 pb-3" Justify="Justify.Center">
         @foreach (var contact in Contacts)
         {
             <MudItem>
-                <MudIconButton Icon="@contact.Icon" Size="Size.Small" Color="@(isDarkMode ? Color.Inherit : Color.Primary)"
-                               Href="@contact.Link" Target="_blank" />
+                <MudIconButton Icon="@contact.Icon" Size="Size.Small" Href="@contact.Link" Target="_blank" Color="Color.Primary" Variant="Variant.Filled" />
             </MudItem>
         }
     </MudGrid>
@@ -21,7 +19,6 @@
 @code {
     [Parameter] public List<Contact> Contacts { get; set; } = new();
     [Parameter] public string ContactText { get; set; } = string.Empty;
-    [Parameter] public bool isDarkMode { get; set; }
 
     public class Contact
     {

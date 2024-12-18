@@ -1,8 +1,8 @@
-﻿<MudText Align="Align.Center" Typo="Typo.h5" Class="@Class" Color="Color.Inherit">
+﻿<MudText Align="Align.Center" Typo="Typo.h5" Class="@Class" Color="Color.Secondary">
     @Title
 </MudText>
 
 @code {
-    [Parameter] public string Title { get; set; }
-    [Parameter] public string Class { get; set; }
+    [Parameter] public string Title { get; set; } = string.Empty;
+    [Parameter] public string Class { get; set; } = string.Empty;
 }

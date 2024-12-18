@@ -1,6 +1,4 @@
-﻿<MudText Align="Align.Center" Typo="Typo.h5" Class="pt-8 pb-2 testimonials" Color="Color.Inherit">
-    Depoimentos
-</MudText>
+﻿<SectionTitle Title="Depoimentos" Class="pt-8 pb-2 testimonials" />
 <MudCarousel TData="object" Class="mud-width-full" ShowArrows="false" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false"
              Style="height:330px; display: flex; flex-direction: column; justify-content: center; padding: 0;">
     @foreach (var testimonial in Testimonials)
@@ -8,13 +6,13 @@
         <MudCarouselItem Transition="Transition.Slide">
             <MudPaper Elevation="4" Style="height:100%; display: flex; align-items: center;">
                 <MudPaper Class="p-5" Style="display: flex; flex-direction: column; justify-content: center; height:100%;">
-                    <MudText Typo="Typo.body2" Align="Align.Justify">
+                    <MudText Typo="Typo.body2" Align="Align.Justify" Color="Color.Tertiary">
                         "@testimonial.Message"
                     </MudText>
-                    <MudText Typo="Typo.body1" Align="Align.Right" Class="mt-2">
+                    <MudText Typo="Typo.body1" Align="Align.Right" Class="mt-2" Color="Color.Secondary">
                         @testimonial.Author
                     </MudText>
-                    <MudText Typo="Typo.caption" Align="Align.Right" Class="mud-text-secondary">
+                    <MudText Typo="Typo.caption" Align="Align.Right" Color="Color.Primary">
                         @testimonial.Role
                     </MudText>
                 </MudPaper>
