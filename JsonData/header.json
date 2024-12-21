@@ -1,0 +1,5 @@
+{
+  "WelcomeMessage": "Bem vindo ao meu website",
+  "MainTechnologies": ".NET • C# • ASP.NET",
+  "Description": "Desenvolvedor .NET com experiência em .NET Core/Framework, C#, ASP.NET (API, MVC, CQRS), JavaScript, TypeScript, Angular, Vue, HTML, CSS. Banco de dados SQL, Elastic (NoSQL). Conhecimento em diversos padrões e arquiteturas de desenvolvimento de software, como Clean Code, CQRS, DDD e microsserviços. Acho essencial escrever código limpo e sustentável, adotando padrões e arquiteturas que garantam escalabilidade, modularidade e flexibilidade."  
+}

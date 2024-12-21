@@ -1,0 +1,51 @@
+[
+  {
+    "Company": "Olik",
+    "Role": "Desenvolvedor .NET Junior",
+    "Period": "Abril/2024 - o momento",
+    "Details": [
+      "o .NET Core, C#, ASP.NET, CQRS, TypeScript, Angular, Docker, RabbitMQ, PostgreSQL, Git, AWS.",
+      "Desenvolvimento, manutenção e aprimoramento de aplicações Web e Web API."
+    ]
+  },
+  {
+    "Company": "Vox Soluções em TI",
+    "Role": "Desenvolvedor .NET Junior",
+    "Period": "Maio/2023 - Março/2024",
+    "Details": [
+      ".NET Core/Framework, C#, ASP.NET, JavaScript, Vue.js, HTML, Bootstrap, CSS, jQuery, Ajax, Axios.",
+      "Bancos de dados SQL e Elastic (NoSQL).",
+      "Desenvolvimento, manutenção e aprimoramento de aplicações Web e Web API."
+    ]
+  },
+  {
+    "Company": "Vox Soluções em TI",
+    "Role": "Estagiário Desenvolvedor .NET",
+    "Period": "Julho/2022 - Abril/2023",
+    "Details": [
+      ".NET Core/Framework, C#, ASP.NET, JavaScript, Vue.js, HTML, Bootstrap, CSS, jQuery, Ajax, Axios.",
+      "Desenvolvimento e manutenção de aplicações Web e Web API.",
+      "Atuação em desenvolvimento de frontend e backend com foco em C# e Vue.js."
+    ]
+  },
+  {
+    "Company": "4W Sites",
+    "Role": "Estagiário Desenvolvedor Web",
+    "Period": "Dezembro/2021 - Junho/2022",
+    "Details": [
+      "JavaScript, HTML, CSS, WordPress e MySQL.",
+      "Desenvolvimento, manutenção e aprimoramento de aplicações Web.",
+      "Participação em otimizações de sites e sistemas em WordPress."
+    ]
+  },
+  {
+    "Company": "Regula Sinistros",
+    "Role": "Assistente de TI",
+    "Period": "Abril/2021 - Novembro/2021",
+    "Details": [
+      "Aprimoramento e manutenção nos sites da empresa com JavaScript, HTML, CSS e Bootstrap.",
+      "Gestão de serviços e equipamentos de TI.",
+      "Help desk e suporte técnico para usuários internos."
+    ]
+  }
+]
