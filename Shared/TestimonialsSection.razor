@@ -1,13 +1,15 @@
 ﻿<SectionTitle Title="Depoimentos" Class="pt-8 pb-2 testimonials" />
-<MudCarousel TData="object" Class="mud-width-full" ShowArrows="false" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false"
-             Style="height:330px; display: flex; flex-direction: column; justify-content: center; padding: 0;">
-    @foreach (var testimonial in Testimonials)
-    {
-        <MudCarouselItem Transition="Transition.Slide">
-            <MudPaper Elevation="4" Style="height:100%; display: flex; align-items: center;">
-                <MudPaper Class="p-5" Style="display: flex; flex-direction: column; justify-content: center; height:100%;">
+
+@if (Testimonials != null && Testimonials.Any())
+{
+    <MudCarousel TData="object" Class="mud-width-full" ShowArrows="true" ShowBullets="true" EnableSwipeGesture="true" AutoCycle="false"
+                 Style="height:330px; display: flex; flex-direction: column; justify-content: center; padding: 0;">
+        @foreach (var testimonial in Testimonials)
+        {
+            <MudCarouselItem Transition="Transition.Slide">
+                <MudPaper Elevation="4" Class="p-5 d-flex flex-column justify-center align-center" Style="height: 100%;">
                     <MudText Typo="Typo.body2" Align="Align.Justify" Color="Color.Tertiary">
-                        "@testimonial.Message"
+                        @testimonial.Message
                     </MudText>
                     <MudText Typo="Typo.body1" Align="Align.Right" Class="mt-2" Color="Color.Secondary">
                         @testimonial.Author
@@ -16,18 +18,18 @@
                         @testimonial.Role
                     </MudText>
                 </MudPaper>
-            </MudPaper>
-        </MudCarouselItem>
-    }
-</MudCarousel>
+            </MudCarouselItem>
+        }
+    </MudCarousel>
+}
+else
+{
+    <MudText Typo="Typo.body1" Align="Align.Center" Color="Color.Secondary">
+        Nenhum depoimento encontrado.
+    </MudText>
+}
+
 
 @code {
     [Parameter] public List<Testimonial> Testimonials { get; set; } = new();
-
-    public class Testimonial
-    {
-        public string Message { get; set; } = string.Empty;
-        public string Author { get; set; } = string.Empty;
-        public string Role { get; set; } = string.Empty;
-    }
 }

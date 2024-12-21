@@ -1,0 +1,26 @@
+[  
+  {
+    "Icon": "Email",
+    "Link": "mailto:contato@lucas.tf"
+  },
+  {
+    "Icon": "Smartphone",
+    "Link": "tel:+5511975528024"
+  },
+  {
+    "Icon": "Telegram",
+    "Link": "https://t.me/lucasmenchon"
+  },
+  {
+    "Icon": "WhatsApp",
+    "Link": "https://wa.me/message/PMGGTQIJXHVMH1"
+  },
+  {
+    "Icon": "GitHub",
+    "Link": "https://github.com/lucasmenchon"
+  },
+  {
+    "Icon": "LinkedIn",
+    "Link": "https://www.linkedin.com/in/lucasmenchon/"
+  }
+]

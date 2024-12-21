@@ -1,4 +1,4 @@
-﻿<SectionTitle Title="Experiências" Class="pt-8 pb-2" />
+﻿<SectionTitle Title="Experiências" Class="pt-8 pb-2 experience" />
 
 <MudTimeline TimelinePosition="TimelinePosition.Start" Class="pt-0 pb-0" Breakpoint="Breakpoint.Sm">
     @foreach (var experience in Experiences)
@@ -23,13 +23,4 @@
 
 @code {
     [Parameter] public List<Experience> Experiences { get; set; } = new();
-
-    public class Experience
-    {
-        public string Company { get; set; } = string.Empty;
-        public string Role { get; set; } = string.Empty;
-        public string Period { get; set; } = string.Empty;
-        public Color Color { get; set; } = MudBlazor.Color.Info;
-        public List<string> Details { get; set; } = new();
-    }
 }

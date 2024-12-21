@@ -1,8 +1,39 @@
-﻿<MudItem Class="d-flex justify-center pt-4 pb-4">
-    <MudImage Width="360" Src="@($"https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2000&pause=1000&color={(isDarkMode ? "F7F7F7" : "000000")}&center=true&vCenter=true&width=435&lines=Bem+vindo+ao+meu+website;Trabalho+principalmente+com;.NET+%E2%80%A2+C%23+%E2%80%A2+ASP.NET")"
-              Alt="Mensagem de boas-vindas animada de Lucas Menchon" LazyLoad="true" />
-</MudItem>
+﻿<MudContainer MaxWidth="MaxWidth.Medium">
+    <MudItem Class="d-flex justify-center pt-4 pb-4">
+        <MudImage Width="360" Src="@($"https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2000&pause=1000&color={(IsDarkMode? "F7F7F7" : "000000")}&center=true&vCenter=true&width=435&lines=Bem+vindo+ao+meu+website;Trabalho+principalmente+com;.NET+%E2%80%A2+C%23+%E2%80%A2+ASP.NET")"
+                  Alt="Mensagem de boas-vindas animada de Lucas Menchon" LazyLoad="true" />
+    </MudItem>
+
+    <div style="position: fixed; top: 150px; right: 0; z-index: 9999;margin-right:10px;">
+        <a href="https://wa.me/message/PMGGTQIJXHVMH1" target="_blank">
+            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_dyf5lscb.json" speed="1.20"
+                           style="width: 38px; height: 40px;" loop autoplay background="transparent"></lottie-player>
+        </a>
+    </div>
+
+    <MudContainer Class="d-flex justify-center pt-4">
+        @foreach (var social in SocialLinks)
+        {
+            <MudButton Link="@social.Link" Target="_blank" Color="Color.Primary" Variant="Variant.Text">
+                <MudIcon Icon="@Utils.GetIcon(social.Icon)" />
+            </MudButton>
+        }
+    </MudContainer>
+
+    <SectionTitle Title="Resumo" Class="pt-8 pb-2 about" />
+
+    <MudContainer Class="p-0">
+        <MudItem>
+            <MudText Align="Align.Center" Typo="Typo.body2">
+                @Header.Description
+            </MudText>
+        </MudItem>
+    </MudContainer>
+
+</MudContainer>
 
 @code {
-    [Parameter] public bool isDarkMode { get; set; }
+    [Parameter] public Header Header { get; set; } = new();
+    [Parameter] public List<SocialLink> SocialLinks { get; set; } = new();
+    [Parameter] public bool IsDarkMode { get; set; }    
 }

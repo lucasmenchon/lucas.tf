@@ -1,0 +1,19 @@
+[
+  {
+    "Title": "Crud de Contatos: C# • ASP.NET",
+    "Description": "Sistema de cadastro de contatos com funcionalidades de criação, atualização e exclusão de registros utilizando C# e ASP.NET.",
+    "GitHubLink": "https://github.com/lucasmenchon/contacts-manage-project"
+  },
+  {
+    "Title": "Crud de Contatos: Vue.js",
+    "Description": "Sistema de cadastro de contatos com funcionalidades de criação, atualização e exclusão de registros utilizando Vue.js.",
+    "Link": "https://lucasmenchon.github.io/simple-crud-vue/",
+    "GitHubLink": "https://github.com/lucasmenchon/simple-crud-vue"
+  },
+  {
+    "Title": "Scoreboard: Vue.js",
+    "Description": "Sistema de cadastro de equipes com funcionalidades de criação, atualização e exclusão de pontuações e membros utilizando Vue.js.",
+    "Link": "https://lucasmenchon.github.io/scoreboard/",
+    "GitHubLink": "https://github.com/lucasmenchon/scoreboard"
+  }
+]

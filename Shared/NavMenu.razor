@@ -1,4 +1,4 @@
-﻿@inject BlazorWebProfile.Models.ThemeService ThemeService
+﻿@inject BlazorWebProfile.Services.ThemeService ThemeService
 @inject IScrollManager ScrollManager
 
 <MudThemeProvider @bind-IsDarkMode="ThemeService.DarkMode" Theme="ThemeService.CustomTheme" />

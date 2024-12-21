@@ -1,70 +1,43 @@
 ﻿@page "/"
-@inject BlazorWebProfile.Models.ThemeService ThemeService
+@inject JsonDataService DataService
+@inject BlazorWebProfile.Services.ThemeService ThemeService
 
 <MudContainer MaxWidth="MaxWidth.Medium">
-    <HeaderSection isDarkMode="isDarkMode" />
 
-    <SocialLinksSection isDarkMode="isDarkMode" />
+    <HeaderSection Header="@Data.Header" SocialLinks="@Data.SocialLinks" IsDarkMode="@isDarkMode" />
 
-    <SectionTitle Title="Resumo" Class="pt-8 pb-2 about" />
+    <EducationSection Educations="@Data.Educations" />
 
-    <MudContainer Class="p-0">
-        <MudItem>
-            <MudText Align="Align.Center" Typo="Typo.body2">
-                Desenvolvedor .NET com experiência em .NET Core/Framework, C#, ASP.NET (API, MVC, CQRS), JavaScript, TypeScript, Angular, Vue, HTML, CSS. Banco de dados SQL, Elastic (NoSQL).
-                Conhecimento em diversos padrões e arquiteturas de desenvolvimento de software, como Clean Code, CQRS, DDD e microsserviços.
-                Acho essencial escrever código limpo e sustentável, adotando padrões e arquiteturas que garantam escalabilidade, modularidade e flexibilidade.
-            </MudText>
-        </MudItem>
-    </MudContainer>
+    <ExperienceSection Experiences="@Data.Experiences" />
 
-    <div style="position: fixed; top: 150px; right: 0; z-index: 9999;margin-right:10px;">
-        <a href="https://wa.me/message/PMGGTQIJXHVMH1" target="_blank">
-            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_dyf5lscb.json" speed="1.20"
-                           style="width: 38px; height: 40px;" loop autoplay background="transparent"></lottie-player>
-        </a>
-    </div>
+    <TestimonialsSection Testimonials="@Data.Testimonials" />
 
-    <SectionTitle Title="Educação" Class="pt-8 pb-2 education" />
-    <MudContainer MaxWidth="MaxWidth.Large">
-        <MudGrid Justify="Justify.Center" Spacing="2">
-            @foreach (var education in Educations)
-            {
-                <MudItem xs="12" sm="6">
-                    <EducationSection Title="@education.Title"
-                                      Course="@education.Course"
-                                      Institution="@education.Institution"
-                                      Duration="@education.Duration" />
-                </MudItem>
-            }
-        </MudGrid>
-    </MudContainer>
+    <SkillsSection Skills="@Data.Skills" />
 
-    <ExperienceSection Experiences="@Experiences" />
+    <ProjectsSection Projects="@Data.Projects" />
 
-    <TestimonialsSection Testimonials="@MyTestimonials" />
-
-    <SkillsSection Skills="MySkills" />
-
-    <ProjectsSection Projects="MyProjects" />
-
-    <ContactSection Contacts="MyContacts" ContactText="Fale comigo via Telegram ou WhatsApp, envie um e-mail para contato@lucas.tf ou me ligue no +55 11 97552-8024." />
+    <ContactSection SocialLinks="@Data.SocialLinks"
+    ContactText="Fale comigo via Telegram ou WhatsApp, envie um e-mail para contato@lucas.tf ou me ligue no +55 11 97552-8024." />
 
 </MudContainer>
 
 <MudDivider DividerType="DividerType.FullWidth" />
 
-<MudItem Class="p-2">   
+<MudItem Class="p-2">
     <MudItem Class="d-flex justify-content-center">
-        <MudText Typo="Typo.body2" Align="Align.Center">© Copyright @DateTime.Now.Year Lucas Menchon. Todos os direitos reservados.</MudText>
+        <MudText Typo="Typo.body2" Align="Align.Center">
+            © Copyright @DateTime.Now.Year Lucas Menchon. Todos os direitos reservados.
+        </MudText>
     </MudItem>
 </MudItem>
 
 @code {
     private bool isDarkMode;
+    private Data Data { get; set; } = new();
 
-    protected override void OnInitialized()
+    protected override async Task OnInitializedAsync()
     {
+        Data = await DataService.GetSiteDataAsync();
         isDarkMode = ThemeService.DarkMode;
         ThemeService.OnThemeChanged += OnThemeChanged;
     }
@@ -74,154 +47,4 @@
         isDarkMode = darkMode;
         StateHasChanged();
     }
-
-    private List<EducationSection.Education> Educations = new()
-    {
-        new EducationSection.Education
-        {
-            Title = "Superior de Tecnologia",
-            Course = "Análise e Desenvolvimento de Sistemas",
-            Institution = "Universidade Paulista - UNIP",
-            Duration = "Março/2022 - Abril/2024"
-        },
-        new EducationSection.Education
-        {
-            Title = "Técnico",
-            Course = "Desenvolvimento de Sistemas",
-            Institution = "Etec Juscelino Kubitschek",
-            Duration = "Fevereiro/2021 - Junho/2022"
-        }
-    };
-
-    private List<ContactSection.Contact> MyContacts = new()
-    {
-        new ContactSection.Contact
-        {
-            Icon = Icons.Custom.Brands.Telegram,
-            Link = "https://t.me/lucasmenchon"
-        },
-        new ContactSection.Contact
-        {
-            Icon = Icons.Material.Filled.Email,
-            Link = "mailto:contato@lucas.tf"
-        },
-        new ContactSection.Contact
-        {
-            Icon = Icons.Material.Filled.Smartphone,
-            Link = "tel:+5511975528024"
-        },
-        new ContactSection.Contact
-        {
-            Icon = Icons.Custom.Brands.WhatsApp,
-            Link = "https://api.whatsapp.com/message/PMGGTQIJXHVMH1?autoload=1&app_absent=0"
-        }
-    };
-
-    private List<ProjectsSection.Project> MyProjects = new()
-    {
-        new ProjectsSection.Project
-        {
-            Title = "Crud de Contatos: C# • ASP.NET",
-            Description = "Sistema de cadastro de contatos com funcionalidades de criação, atualização e exclusão de registros utilizando C# e ASP.NET.",
-            GitHubLink = "https://github.com/lucasmenchon/contacts-manage-project"
-        },
-        new ProjectsSection.Project
-        {
-            Title = "Crud de Contatos: Vue.js",
-            Description = "Sistema de cadastro de contatos com funcionalidades de criação, atualização e exclusão de registros utilizando Vue.js.",
-            Link = "https://lucasmenchon.github.io/simple-crud-vue/",
-            GitHubLink = "https://github.com/lucasmenchon/simple-crud-vue"
-        },
-        new ProjectsSection.Project
-        {
-            Title = "Scoreboard: Vue.js",
-            Description = "Sistema de cadastro de equipes com funcionalidades de criação, atualização e exclusão de pontuações e membros utilizando Vue.js.",
-            Link = "https://lucasmenchon.github.io/scoreboard/",
-            GitHubLink = "https://github.com/lucasmenchon/scoreboard"
-        }
-    };
-
-    private List<string> MySkills = new()
-    {
-        ".NET Core/Framework", "C#", "ASP.NET", "JavaScript", "TypeScript",
-        "Angular", "Vue.js", "Git", "HTML", "CSS", "Bootstrap", "SQL", "Elastic (NoSQL)"
-    };
-
-    private List<TestimonialsSection.Testimonial> MyTestimonials = new()
-    {
-        new TestimonialsSection.Testimonial
-        {
-            Message = "Lucas é um profissional extremamente dedicado e apaixonado por .Net. Ele se destaca por sua habilidade em estar sempre atualizado com as últimas novidades da stack e por sua constante busca em aplicar as melhores práticas de desenvolvimento.",
-            Author = "Jhoni Farias",
-            Role = "Software Developer II - BackOffice, Grupo Autoglass"
-        }
-    };
-
-    private List<ExperienceSection.Experience> Experiences = new()
-    {
-        new ExperienceSection.Experience
-        {
-            Company = "Olik",
-            Role = "Desenvolvedor .NET Junior",
-            Period = "Abril/2024 - o momento",
-            Color = MudBlazor.Color.Success,
-            Details = new List<string>
-            {
-                "o .NET Core, C#, ASP.NET, CQRS, TypeScript, Angular, Docker, RabbitMQ, PostgreSQL, Git, AWS.",
-                "Desenvolvimento, manutenção e aprimoramento de aplicações Web e Web API."
-            }
-        },
-        new ExperienceSection.Experience
-        {
-            Company = "Vox Soluções em TI",
-            Role = "Desenvolvedor .NET Junior",
-            Period = "Maio/2023 - Março/2024",
-            Color = MudBlazor.Color.Info,
-            Details = new List<string>
-            {
-                ".NET Core/Framework, C#, ASP.NET, JavaScript, Vue.js, HTML, Bootstrap, CSS, jQuery, Ajax, Axios.",
-                "Bancos de dados SQL e Elastic (NoSQL).",
-                "Desenvolvimento, manutenção e aprimoramento de aplicações Web e Web API."
-            }
-        },
-        new ExperienceSection.Experience
-        {
-            Company = "Vox Soluções em TI",
-            Role = "Estagiário Desenvolvedor .NET",
-            Period = "Julho/2022 - Abril/2023",
-            Color = MudBlazor.Color.Info,
-            Details = new List<string>
-            {
-                ".NET Core/Framework, C#, ASP.NET, JavaScript, Vue.js, HTML, Bootstrap, CSS, jQuery, Ajax, Axios.",
-                "Desenvolvimento e manutenção de aplicações Web e Web API.",
-                "Atuação em desenvolvimento de frontend e backend com foco em C# e Vue.js."
-            }
-        },
-        new ExperienceSection.Experience
-        {
-            Company = "4W Sites",
-            Role = "Estagiário Desenvolvedor Web",
-            Period = "Dezembro/2021 - Junho/2022",
-            Color = MudBlazor.Color.Info,
-            Details = new List<string>
-            {
-                "JavaScript, HTML, CSS, WordPress e MySQL.",
-                "Desenvolvimento, manutenção e aprimoramento de aplicações Web.",
-                "Participação em otimizações de sites e sistemas em WordPress."
-            }
-        },
-        new ExperienceSection.Experience
-        {
-            Company = "Regula Sinistros",
-            Role = "Assistente de TI",
-            Period = "Abril/2021 - Novembro/2021",
-            Color = MudBlazor.Color.Info,
-            Details = new List<string>
-            {
-                "Aprimoramento e manutenção nos sites da empresa com JavaScript, HTML, CSS e Bootstrap.",
-                "Gestão de serviços e equipamentos de TI.",
-                "Help desk e suporte técnico para usuários internos."
-            }
-        }
-    };
 }

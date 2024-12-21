@@ -1,7 +1,6 @@
 ﻿using Microsoft.JSInterop;
-using MudBlazor;
 
-namespace BlazorWebProfile.Models;
+namespace BlazorWebProfile.Services;
 
 public class ThemeService
 {
