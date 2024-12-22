@@ -3,7 +3,7 @@
 
 <MudThemeProvider @bind-IsDarkMode="ThemeService.DarkMode" Theme="ThemeService.CustomTheme" />
 
-<MudAppBar Fixed="true" Dense="true" Color="Color.Inherit" Elevation="2">
+<MudAppBar Fixed="true" Dense="true" Elevation="2" Style="@(GetAppBarBackgroundColorStyle())">
     <MudContainer Class="d-flex justify-center gap-1">
         <MudItem>
             <MudButton OnClick="@(() => ScrollToClassAsync(".about"))" Color="Color.Inherit" Variant="Variant.Text" Size="Size.Small">Sobre</MudButton>
@@ -17,14 +17,24 @@
         <MudItem>
             <MudButton OnClick="@(() => ScrollToClassAsync(".contact"))" Color="Color.Inherit" Variant="Variant.Text" Size="Size.Small">Contato</MudButton>
         </MudItem>
-        <MudIconButton Class="@($"p-0 sun-moon-toggle {(ThemeService.DarkMode ? "night-mode" : "")}")"
-                       OnClick="ThemeService.ToggleTheme"
+        <MudIconButton OnClick="ThemeService.ToggleTheme"
                        Icon="@(ThemeService.DarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.ModeNight)"
-                       Color="Color.Inherit" Size="Size.Small" />
+                       Color="Color.Inherit"
+                       Size="Size.Small" />
     </MudContainer>
 </MudAppBar>
 
 @code {
+
+    private string GetAppBarBackgroundColorStyle()
+    {
+        var color = ThemeService.DarkMode
+            ? ThemeService.CustomTheme.PaletteDark.AppbarBackground.Value
+            : ThemeService.CustomTheme.PaletteLight.AppbarBackground.Value;
+
+        return $"background-color: {color};";
+    }
+
     public async Task ScrollToClassAsync(string targetClass)
     {
         await ScrollManager!.ScrollIntoViewAsync($"{targetClass}", MudBlazor.ScrollBehavior.Smooth);

@@ -1,39 +1,7 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-.loading-overlay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: rgb(34, 40, 49); /*#32333D;*/
-}
-
-
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-.section-background {
-    background-color: #F9F9F9;
-    padding: 2rem 0;
-    border-radius: 8px;
-}
-
-.section-heading {
-    margin-bottom: 1.5rem;
-    color: #2E3B55;
-    font-weight: bold;
-}
-
-
-.mud-button {
-    transition: all 0.3s ease-in-out;
-}
-
-.mud-icon-button:hover {
-    transform: scale(1.1);
-    transition: all 0.2s ease-in-out;
+﻿html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 h1:focus {
@@ -48,6 +16,10 @@ a, .btn-link {
     color: #fff;
     background-color: #1b6ec2;
     border-color: #1861ac;
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
 .content {
@@ -95,22 +67,39 @@ a, .btn-link {
         content: "An error has occurred."
     }
 
-@keyframes moonSunAnimation {
-    0% {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
+.loading-progress {
+    position: relative;
+    display: block;
+    width: 8rem;
+    height: 8rem;
+    margin: 20vh auto 1rem auto;
 }
 
-.sun-moon-toggle {
-    animation: moonSunAnimation 0.5s ease-in-out;
+    .loading-progress circle {
+        fill: none;
+        stroke: #e0e0e0;
+        stroke-width: 0.6rem;
+        transform-origin: 50% 50%;
+        transform: rotate(-90deg);
+    }
+
+        .loading-progress circle:last-child {
+            stroke: #1b6ec2;
+            stroke-dasharray: calc(3.141 * var(--blazor-load-percentage, 0%) * 0.8), 500%;
+            transition: stroke-dasharray 0.05s ease-in-out;
+        }
+
+.loading-progress-text {
+    position: absolute;
+    text-align: center;
+    font-weight: bold;
+    inset: calc(20vh + 3.25rem) 0 auto 0.2rem;
 }
 
-.night-mode {
-    animation: moonSunAnimation 0.5s ease-in-out; /* Adapte a cor conforme necessário */
+    .loading-progress-text:after {
+        content: var(--blazor-load-percentage-text, "Loading");
+    }
+
+code {
+    color: #c02d76;
 }

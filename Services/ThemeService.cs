@@ -46,7 +46,7 @@ public class ThemeService
                 // Fundo e Superfícies
                 Background = Colors.Shades.Black,          // Fundo preto puro para contraste
                 Surface = Colors.Gray.Darken4,             // Superfície escura, neutra e uniforme
-                AppbarBackground = Colors.Gray.Darken3,    // Fundo da AppBar um pouco mais claro para leve separação visual
+                AppbarBackground = Colors.Gray.Darken4,    // Fundo da AppBar um pouco mais claro para leve separação visual
 
                 // Textos
                 TextPrimary = Colors.Blue.Lighten4,         // Texto principal em branco puro para contraste claro
