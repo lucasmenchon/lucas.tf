@@ -1,19 +1,25 @@
 ﻿<SectionTitle Title="Experiências" Class="pt-8 pb-2 experience" />
 
 <MudTimeline TimelinePosition="TimelinePosition.Start" Class="pt-0 pb-0" Breakpoint="Breakpoint.Sm">
-    @foreach (var experience in Experiences)
+    @for (int i = 0; i < Experiences.Count; i++)
     {
-        <MudTimelineItem Size="Size.Small" Color="@experience.Color" Elevation="4">
+        var experience = Experiences[i];
+
+        <MudTimelineItem Size="Size.Small"
+                         Color="@(i == 0 ? Color.Success : experience.Color)"
+                         Elevation="4">
             <ItemContent>
                 <MudCard Elevation="4" Class="pa-2">
                     <MudCardContent>
                         <MudText Typo="Typo.body1" Color="Color.Secondary">@experience.Company</MudText>
                         <MudText Typo="Typo.caption" Color="Color.Primary">@experience.Role • @experience.Period</MudText>
                         <MudSpacer />
-                        @foreach (var detail in experience.Details)
-                        {
-                            <MudText Typo="Typo.caption" Color="Color.Tertiary">@detail</MudText>
-                        }
+                        <MudList T="string">
+                            @foreach (var detail in experience.Details)
+                            {
+                                <MudListItem T="string">@detail</MudListItem>
+                            }
+                        </MudList>
                     </MudCardContent>
                 </MudCard>
             </ItemContent>

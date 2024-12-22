@@ -11,12 +11,11 @@
     </MudGrid>
     <MudItem Class="d-flex justify-center">
         <MudText Typo="Typo.body2" Align="Align.Center" Class="col-10">
-            @ContactText
+            Fale comigo via Telegram ou WhatsApp, envie um e-mail para contato@lucas.tf ou me ligue no +55 11 97552-8024.
         </MudText>
     </MudItem>
 </MudContainer>
 
 @code {
     [Parameter] public List<SocialLink> SocialLinks { get; set; } = new();
-    [Parameter] public string ContactText { get; set; } = string.Empty;
 }

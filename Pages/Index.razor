@@ -16,20 +16,11 @@
 
     <ProjectsSection Projects="@Data.Projects" />
 
-    <ContactSection SocialLinks="@Data.SocialLinks"
-    ContactText="Fale comigo via Telegram ou WhatsApp, envie um e-mail para contato@lucas.tf ou me ligue no +55 11 97552-8024." />
+    <ContactSection SocialLinks="@Data.SocialLinks" />
 
 </MudContainer>
 
-<MudDivider DividerType="DividerType.FullWidth" />
-
-<MudItem Class="p-2">
-    <MudItem Class="d-flex justify-content-center">
-        <MudText Typo="Typo.body2" Align="Align.Center">
-            © Copyright @DateTime.Now.Year Lucas Menchon. Todos os direitos reservados.
-        </MudText>
-    </MudItem>
-</MudItem>
+<FooterSection />
 
 @code {
     private bool isDarkMode;
