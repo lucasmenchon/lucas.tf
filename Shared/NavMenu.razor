@@ -1,7 +1,7 @@
 ﻿@inject BlazorWebProfile.Services.ThemeService ThemeService
 @inject IScrollManager ScrollManager
 
-<MudThemeProvider @bind-IsDarkMode="ThemeService.DarkMode" Theme="ThemeService.CustomTheme" />
+<MudThemeProvider IsDarkMode="ThemeService.DarkMode" Theme="ThemeService.CustomTheme" />
 
 <MudAppBar Fixed="true" Dense="true" Elevation="2" Style="@(GetAppBarBackgroundColorStyle())">
     <MudContainer Class="d-flex justify-center gap-1">
@@ -17,7 +17,7 @@
         <MudItem>
             <MudButton OnClick="@(() => ScrollToClassAsync(".contact"))" Color="Color.Inherit" Variant="Variant.Text" Size="Size.Small">Contato</MudButton>
         </MudItem>
-        <MudIconButton OnClick="ThemeService.ToggleTheme"
+        <MudIconButton OnClick="ToggleTheme"
                        Icon="@(ThemeService.DarkMode ? Icons.Material.Filled.LightMode : Icons.Material.Filled.ModeNight)"
                        Color="Color.Inherit"
                        Size="Size.Small" />
@@ -25,7 +25,6 @@
 </MudAppBar>
 
 @code {
-
     private string GetAppBarBackgroundColorStyle()
     {
         var color = ThemeService.DarkMode
@@ -38,5 +37,11 @@
     public async Task ScrollToClassAsync(string targetClass)
     {
         await ScrollManager!.ScrollIntoViewAsync($"{targetClass}", MudBlazor.ScrollBehavior.Smooth);
+    }
+
+    private void ToggleTheme()
+    {
+        ThemeService.ToggleTheme();
+        StateHasChanged();
     }
 }
