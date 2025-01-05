@@ -1,6 +1,6 @@
 ﻿<MudContainer MaxWidth="MaxWidth.Medium">
     <MudItem Class="d-flex justify-center pt-4 pb-4">
-        <MudImage Width="360" Src="@($"https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2000&pause=1000&color={(IsDarkMode? "F7F7F7" : "000000")}&center=true&vCenter=true&width=435&lines=Bem+vindo+ao+meu+website;Trabalho+principalmente+com;.NET+%E2%80%A2+C%23+%E2%80%A2+ASP.NET")"
+        <MudImage Width="360" Src="@($"https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=16&duration=2000&pause=1000&color={(IsDarkMode? "60C1F7" : "2979FF")}&center=true&vCenter=true&width=435&lines=Bem+vindo+ao+meu+website;Trabalho+principalmente+com;.NET+%E2%80%A2+C%23+%E2%80%A2+ASP.NET")"
                   Alt="Mensagem de boas-vindas animada de Lucas Menchon" LazyLoad="true" />
     </MudItem>
 
@@ -35,5 +35,5 @@
 @code {
     [Parameter] public Header Header { get; set; } = new();
     [Parameter] public List<SocialLink> SocialLinks { get; set; } = new();
-    [Parameter] public bool IsDarkMode { get; set; }    
+    [Parameter] public bool IsDarkMode { get; set; }
 }
