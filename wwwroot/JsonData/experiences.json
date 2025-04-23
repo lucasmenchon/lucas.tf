@@ -1,7 +1,7 @@
 [
   {
     "Company": "Olik",
-    "Role": "Desenvolvedor .NET Junior",
+    "Role": "Desenvolvedor .NET",
     "Period": "Abril/2024 - o momento",
     "Details": [
       ".NET Core, C#, ASP.NET, CQRS, TypeScript, Angular, Docker, RabbitMQ, PostgreSQL, Git, AWS.",
@@ -10,7 +10,7 @@
   },
   {
     "Company": "Vox Soluções em TI",
-    "Role": "Desenvolvedor .NET Junior",
+    "Role": "Desenvolvedor .NET",
     "Period": "Maio/2023 - Março/2024",
     "Details": [
       ".NET Core/Framework, C#, ASP.NET, JavaScript, Vue.js, HTML, Bootstrap, CSS, jQuery, Ajax, Axios.",
